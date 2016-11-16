@@ -3,22 +3,14 @@ var log = function(){console.log.apply(console,arguments)}
 
 // [{"id":0,"name":"默认分类","child":[0]},
 // {"id":1,"name":"父亲一","child":[1,2]},
-// {"id":2,"name":"父亲二","child":[3,4]}]
 //
 // [{"id":0,"pid":0,"name":"默认子分类","child":[-1,0,1]},
 // {"id":1,"pid":"1","name":"父一子一","child":[2,3]},
-// {"id":2,"pid":"1","name":"父一子二","child":[4]},
-// {"id":3,"pid":"2","name":"父二子一","child":[5]},
-// {"id":4,"pid":"2","name":"父二子二","child":[6]}]
+
 //
 // [{"finish":true,"name":"使用说明","date":"2015-06-05","content":"本应用为离线应用","pid":0,"id":-1,},
 // {"finish":true,"name":"sssss","date":"2016-11-17","content":"sssss","pid":"0","id":0},
-// {"finish":true,"name":"uuuuu","date":"2016-11-10","content":"uuuuuuuuuu","pid":"0","id":1},
-// {"finish":false,"name":"111111111","date":"2016-11-02","content":"张聪聪错错错错错错错错","pid":1,"id":2},
-// {"finish":false,"name":"222222222222","date":"2016-11-17","content":"分分分分分","pid":"1","id":3},
-// {"finish":false,"name":"111111111111","date":"2016-11-05","content":"扥纷纷纷纷","pid":"2","id":4},
-// {"finish":false,"name":"111111111111","date":"2016-11-11","content":"分分分分分分分","pid":"3","id":5},
-// {"finish":false,"name":"1111111111111","date":"2016-11-17","content":"谢谢谢谢谢谢谢","pid":"4","id":6}]
+
 
 var todo = {
     parentList : [
@@ -781,8 +773,12 @@ var saveTodo = function() {
 //读取数据
 var loadTodo = function() {
     var a = localStorage.todo
-    // log(a)
-    return JSON.parse(a)
+    if (a) {
+        return JSON.parse(a)
+    } else {
+        return todo
+    }    // log(a)
+
 }
 //绑定各个事件
 var bindEvents = function() {
