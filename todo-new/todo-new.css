@@ -1,0 +1,319 @@
+    body {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        /*设置高度为视口高度（即100vh），即可充满整个屏幕*/
+        height: 100vh;
+        font-family: Microsoft YaHei;
+        overflow-x:hidden;
+    }
+    header {
+        flex: 0 0 2.5em;
+        width: 100%;
+        line-height: 2.5em;
+        /*box-shadow: 1px 2px 25px #333333;*/
+        background-color: #336699;
+        padding-left: 20px;
+        z-index: 100;
+        font-family: cursive;
+        color: white;
+        font-size: 1.5em;
+    }
+    .todo-body {
+        display: flex;
+        flex: 1;
+        width: 100%;
+    }
+    main {
+        flex: 1;
+    }
+    nav, aside {
+        flex: 0 0 15em;
+        /*overflow: hidden;*/
+    }
+    nav {
+        display: flex;
+        flex-direction: column;
+        /*background-color: rgba(107, 120, 128, 0.5);*/
+        background-color: rgba(107, 120, 128, 0.5);
+        border-right: 0.6px solid grey;
+        /*box-shadow: 0.5px 5px 7px #777777;*/
+    }
+    nav .nav-cell,.todo-item-title,.todo-item-child,#todo-item-all {
+        flex: 0 0 2em;
+        line-height: 2em;
+        padding-left: 1em;
+    }
+    nav .todo-item-title {
+        /*background-color:rgba(107, 120, 128, 0.5);*/
+    }
+    nav .todo-item-child {
+        /*background-color: rgba(195, 212, 222, 0.5);*/
+    }
+    nav .title-span, .child-span {
+        display: inline-block;
+        width: 80%;
+        height: 100%;
+        overflow: hidden;
+        vertical-align: middle;
+        /*outline: 1px solid red;*/
+        /*指定下面这条，可以让盒模型长宽固定，定义padding和margin不会改变大小*/
+        box-sizing:border-box;
+    }
+    nav .child-span {
+        padding-left: 2em;
+    }
+    nav .todo-item-title i,.todo-item-child i {
+        display: inline-block;
+        font-size: 1.2em;
+    }
+    nav .todo-item-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    nav .todo-item {
+        display: flex;
+        flex-direction: column;
+    }
+    nav .todo-item-child:hover,.todo-item-title:hover {
+        background-color: #FFFFCC;
+        cursor: pointer;
+    }
+    nav .nav-btm {
+        flex: 0 0 4em;
+        background-color: rgba(42, 54, 61, 0.44);
+        line-height: 4em;
+        text-align: center;
+    }
+    aside {
+        /*overflow:hidden;*/
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(195, 212, 222, 0.5);
+        border-right: 0.6px solid grey;
+        /*box-shadow: 0.5px 5px 7px #777777;*/
+    }
+    aside .todo-buttons {
+        flex: 0 0 4em;
+        display: flex;
+        background-color: white;
+        justify-content: space-between;
+        border-bottom: 1px dashed grey;
+    }
+    aside .todo-buttons button {
+        flex: 0 0 33.3333%;
+        border: none;
+        font-family: Microsoft YaHei;
+        border-right: 0.5px solid grey;
+        font-size: 15px;
+    }
+    aside .todo-buttons button:hover, .list-active {
+        background-color: rgba(107, 120, 128, 0.5);
+        cursor: pointer;
+        color: white;
+    }
+    aside .todo-task-list {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y:auto;
+    }
+    aside .todo-task-list div {
+        flex: 0 0 2em;
+        line-height: 2em;
+        padding-left: 0.5em;
+        /*background-color: rgba(93, 125, 143, 0.44);*/
+    }
+    aside .todo-task-list .todo-task-list-time {
+        background-color: rgba(107, 120, 128, 0.5);
+    }
+    aside .todo-task-list-content:hover {
+        background-color: #FFFFCC;
+        cursor: pointer;
+    }
+    aside .aside-btm {
+        flex: 0 0 4em;
+        line-height: 4em;
+        text-align: center;
+        background-color: rgba(42, 54, 61, 0.44);
+    }
+    nav .nav-btm:hover,aside .aside-btm:hover {
+        cursor: pointer;
+        background: #eee;
+    }
+    nav .child-active, aside .task-active {
+        background: #FFFFCC;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+    main .todo-title {
+        flex: 0 0 4em;
+        line-height: 4em;
+        padding-left: 1.5em;
+        font-weight: bolder;
+        background-color: rgba(107, 120, 128, 0.5);
+    }
+    main .todo-title span {
+        display: inline-block;
+        width: 40%;
+        font-size: 1.3em;
+        text-align: left;
+        vertical-align: middle;
+        overflow: hidden;
+        /*outline: 2px solid red;*/
+    }
+    main .todo-title .editAndDone {
+        /*display: inline-block;*/
+        width: 50%;
+        font-size: 1.8em;
+        text-align: right;
+        vertical-align: middle;
+    }
+    main .todo-title .editAndDone a:hover {
+        cursor: pointer;
+    }
+    main .todo-time {
+        flex: 0 0 4em;
+        line-height: 4em;
+        padding-left: 1.5em;
+        background-color: rgba(195, 212, 222, 0.5);
+    }
+    main .todo-content {
+        flex: 1;
+        padding-top: 1em;
+        padding-left: 1em;
+    }
+    main .textarea-content {
+        background-color: white;
+        width: 100%;
+        height: 70%;
+        font-family: Microsoft YaHei;
+        border: none;
+        font-size: 1em;
+        resize: none;
+    }
+    main .textarea-content:focus{
+        outline: none;
+    }
+    main .todo-saveAndQuit {
+        display: inline-block;
+        width: 500px;
+        margin-left: 50%;
+        margin-bottom: 50px;
+        /*outline: 2px solid red;*/
+    }
+    main .todo-saveAndQuit span {
+        display: inline-block;
+        width: 20%;
+        margin-right: 50px;
+        font-size: 1em;
+        color: red;
+    }
+    main .todo-saveAndQuit button {
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+        color: white;
+        background: rgba(0, 81, 255, 0.5);
+        border: none;
+        font-family: Microsoft YaHei;
+    }
+    main .todo-saveAndQuit button:hover {
+        cursor: pointer;
+    }
+    main .todo-saveAndQuit button:focus {
+        outline: none;
+    }
+    main .todo-name-input,.todo-date-input {
+        width: 200px;
+        height: 2em;
+        font-family: Microsoft YaHei;
+        font-size: 0.7em;
+    }
+    .cover {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .mask {
+        position: fixed;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        top:0;
+        left:0;
+        z-index: -1;
+    }
+    .addMenu {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 350px;
+        height: 200px;
+        background-color: white;
+        z-index: 101;
+        text-align: center;
+        box-shadow: 0px 0px 28px #333333;
+    }
+    .addMenu .add-head {
+        background: lightgrey;
+        flex: 0 0 3em;
+        line-height: 3em;
+        border-bottom: 1px dashed grey;
+        font-size: 1.5em;
+    }
+    .addMenu .add-body {
+        background: lightgrey;
+        padding-top: 5px;
+        padding-left: 30px;
+        font-size: 1rem;
+        line-height: 2.2;
+        flex: 1;
+        text-align: left;
+    }
+    .addMenu .add-body input, .addMenu .add-body select {
+        width: 160px;
+        height: 24px;
+        padding-left: 5px;
+        border: 1px solid #C6CAE0;
+        box-sizing: border-box;
+        font-family: "Microsoft YaHei",SimHei,STHeiti,sans-serif;
+    }
+    .addMenu .add-foot {
+        flex: 0 0 3em;
+        font-size: 0;
+    }
+    .addMenu .add-foot button {
+        width: 50%;
+        height: 3em;
+        border: none;
+        border-right: 1px solid grey;
+        font-family: Microsoft YaHei;
+        background: darkgrey;
+    }
+    .addMenu .add-foot button:hover {
+        cursor: pointer;
+        background-color: white;
+    }
+    @media all and (max-width: 750px){
+        header {
+            text-align: center;
+        }
+        nav {
+            display: none;
+        }
+        aside {
+            display: none;
+        }
+    }

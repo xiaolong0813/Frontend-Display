@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="toDo 单页应用" content="记事本 任务管理 webApp">
+        <meta name="author" content="Gaohaoyang, xuxiaolong200691@163.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>ToDo</title>
+        <link rel="stylesheet" href="todo-new.css" media="screen" title="no title">
+        <link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header><i class="fa fa-th"></i>  ToDo</header>
+        <div class="todo-body">
+            <nav>
+                <div class="nav-cell todo-item-child" id="todo-item-all" data-idofchild=-1><i class="fa fa-globe"></i>
+                     所有任务  (<span>1</span>)
+                </div>
+                <div class="nav-cell"><i class="fa fa-list-ul"></i>  分类列表</div>
+                <div class="todo-item-container" data-activechild=0>
+                    <!-- 这是一个大项目分类 -->
+                    <!-- <div class="todo-item" data-idofitem=0>
+                        <div class="todo-item-title" data-idofchild=i0>
+                            默认分类  (<span>1</span>)
+                        </div>
+                        <div class="todo-item-child" id="default-child" data-idofchild=0>
+                            默认子分类  (<span>1</span>)
+                        </div>
+                    </div> -->
+                </div>
+                <div class="nav-btm">
+                    <i class="fa fa-plus"></i>
+                    新增分类
+                </div>
+            </nav>
+            <aside>
+                <div class="todo-buttons">
+                    <button class="todo-all list-active">所有</button>
+                    <button class="todo-undone">未完成</button>
+                    <button class="todo-done">已完成</button>
+                </div>
+                <div class="todo-task-list" data-activetask=0>
+                    <div class="todo-task-list-time todo-task-list-cell">2016-11-09</div>
+                    <div class="todo-task-list-content todo-task-list-cell" data-idoftask=0>使用说明</div>
+                </div>
+                <div class="aside-btm">
+                    <i class="fa fa-plus"></i>
+                    新增任务
+                </div>
+            </aside>
+            <main data-state=0>
+                <div class="todo-title">
+                    <span class="todo-title-note">使用说明</span>
+                    <div class="editAndDone" style="display:inline-block">
+                        <a id="id-todo-done"><i class="fa fa-check"></i></a>
+                        <a id="id-todo-edit"><i class="fa fa-pencil"></i></a>
+                        <a id="id-todo-delete"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="todo-time">任务日期：
+                    <span class="todo-time-note">2016-11-09</span>
+                </div>
+                <div class="todo-content">
+                    <textarea class="textarea-content" placeholder="请输入任务内容" readonly="readonly" disabled="disabled">本应用是离线应用，数据将存储在本地硬盘</textarea>
+                </div>
+                <div class="todo-saveAndQuit" style="display:none">
+                    <span class="info"></span>
+                    <button class="save">保存</button>
+                    <button class="quit">放弃</button>
+                </div>
+            </main>
+        </div>
+        <div class="cover" style="display: none;">
+            <div class="mask"></div>
+            <div class="addMenu">
+                <div class="add-head">新增分类</div>
+                <div class="add-body">
+                    选择主分类：
+                    <select id="add-select">
+                        <option value="0">新增主分类</option>
+                    </select><br>
+                    新分类名称：
+                    <input type="text" id="add-input">
+                </div>
+                <div class="add-foot">
+                    <button id="cancel">取消</button>
+                    <button id="ok">确认</button>
+                </div>
+            </div>
+        </div>
+        <script src='todo-new.js'></script>
+    </body>
+</html>
