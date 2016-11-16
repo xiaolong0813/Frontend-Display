@@ -1,16 +1,4 @@
 var log = function(){console.log.apply(console,arguments)}
-//声明分类，子分类，项目的数组，以下面的格式：
-
-// [{"id":0,"name":"默认分类","child":[0]},
-// {"id":1,"name":"父亲一","child":[1,2]},
-//
-// [{"id":0,"pid":0,"name":"默认子分类","child":[-1,0,1]},
-// {"id":1,"pid":"1","name":"父一子一","child":[2,3]},
-
-//
-// [{"finish":true,"name":"使用说明","date":"2015-06-05","content":"本应用为离线应用","pid":0,"id":-1,},
-// {"finish":true,"name":"sssss","date":"2016-11-17","content":"sssss","pid":"0","id":0},
-
 
 var todo = {
     parentList : [
@@ -59,13 +47,6 @@ var clearClass = function(array, className) {
 }
 
 // //模拟ajax与后端（即全局数组）进行交互
-// var ajaxModel = function(url, data, callback) {
-//
-// }
-//通过id在数组中寻找拥有此id的对象（不能直接把id当index，因为数据有可能存放在数据库里面，而id并不是一个人
-//的，有可能是多个人共用，此时id就按照顺序排列。）
-//以上是我开始的想法，后来想想，其实id就是每个在数组中的index值，这个无所谓有多少，放进去的时候就决定了
-//他的位置，也就决定了index值，但是还是按照搜索id的方式写吧
 var findById = function(id, list, index=false) {
     var found = false
     for (let i = 0; i < list.length; i++) {
@@ -133,12 +114,10 @@ var addParentChildData = function(selValue, inputValue) {
     var selNUm = Number(selValue)
     // log(selNUm)
     if (selNUm === 0) {
-        // 如果是新元素，那么新添加的元素的 id 就是最后一个元素的 id + 1，注意不能按照长度。
+        // 如果是新元素，那么新添加的元素的 id 就是最后一个元素的 id + 1
         var pLen = todo.parentList.length
         var newId = Number(todo.parentList[pLen - 1].id) + 1
         var newParent = {id: newId,name: inputValue,child:[]}
-        //把新加入的父类导入parentList，注意，这里为了要模拟后端交互，用parentList里面的
-        //数据进行前端页面的修改，假设后端返回的是newParent
         todo.parentList.push(newParent)
         // addParentFront(newParent)
         //更新nav界面
@@ -290,29 +269,7 @@ var deleteParentData = function(pid) {
 }
 //根据返回值pid更新删除后的页面
 var deleteParentFront = function(pid) {
-    // //删去nav内div和option选项
-    // // var p = $(`[data-idofitem="${pid}"]`)
-    // var cInp = p.querySelectorAll('.todo-item-child')
-    // //如果删除的是当前激活的一项，把当前激活项目设为所有任务
-    // var idOfacC = $('.todo-item-container').dataset.activechild
-    // for (let i = 0; i < cInp.length; i++) {
-    //     var cid = cInp[i].dataset.idofchild
-    //     if (String(cid) === String(idOfacC)) {
-    //         selectAll()
-    //         break
-    //     }
-    // }
-    // // p.remove()
-    // var options = $('#add-select').children
-    // for (let i = 0; i < options.length; i++) {
-    //     var v = String(options[i].value)
-    //     if (v === String(pid)) {
-    //         options[i].remove()
-    //     }
-    // }
     rendNav()
-    // selectAll()
-
 }
 //根据cid删除后台数据
 var deleteChildData = function(cid) {
@@ -341,23 +298,7 @@ var deleteChildData = function(cid) {
 }
 //根据返回值cid更新删除后的页面
 var deleteChildFront = function(cid) {
-    // //删除此child
-    // var child = $(`[data-idofchild="${cid}"]`)
-    // var parent = child.parentElement
-    //如果删除的是当前激活的一项，把当前激活项目设为所有任务
-    // var idOfacC = $('.todo-item-container').dataset.activechild
-    // rendNav()
-    // if (String(idOfacC) === String(cid)) {
-    //     selectAll()
-    // } else {
-    //     var child = $(`[data-idofchild="${idOfacC}"]`)
-    //     activeOneChild(child)
-    // }
     rendNav()
-    // child.remove()
-    // //修改父类中的child个数
-    // var span = parent.children[0].querySelector('span')
-    // span.innerHTML = Number(span.innerHTML) - 1
 }
 //根据tid删除后台数据
 var deleteTaskData = function(tid) {
@@ -680,12 +621,6 @@ var addTaskFront = function(newTask) {
     rendAside('all', newTask.id)
     //渲染main界面
     rendMain()
-    // //将子分类中和所有任务中的task个数+1
-    // var ch = $(`[data-idofchild="${newTask.pid}"]`)
-    // var chSpan = ch.querySelector('span')
-    // chSpan.innerHTML = Number(chSpan.innerHTML) + 1
-    // var allSpan = $('#todo-item-all').querySelector('span')
-    // allSpan.innerHTML = Number(allSpan.innerHTML) + 1
 }
 //绑定完成和编辑事件
 var editDoneDeleteTaskBind = function() {
