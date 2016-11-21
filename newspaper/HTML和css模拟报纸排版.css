@@ -1,0 +1,412 @@
+body {
+        background-color: #44565C;      /* 背景色   */
+        color:#767777;
+        margin:0px;                     /* 外边距   */
+        border:0px;                     /* 边框     */
+        padding:0px;                    /* 内边距   */
+        border-style: solid;            /* 边框样式 */
+        font-family: Microsoft YaHei;   /* 字体     */
+        font-size: 12px;                /* 字体大小 */
+        min-width: 750px;               /* 最小宽度，这个有必要 */
+    }
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 980px;
+    height: 1386px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 0 44px;
+    box-sizing: border-box;
+}
+header {
+    position: relative;
+    margin-bottom: 30px;
+}
+header .ife-com {
+    width: 110px;
+    height: 61px;
+    position: relative;
+    background-color: rgba(247, 61, 54, 0.5);
+}
+header .ife-com p {
+    position: absolute;
+    color: #fff;
+    left: 4px;
+    bottom: 2px;
+}
+header .date {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    color: #d45d5c;
+    font-family: "SimHei";
+}
+header .underline-1 {
+    border: 1px solid #938e8c;
+}
+.section-top {
+    position: relative;
+}
+.top-img {
+    position: relative;
+    width: 641px;
+    height: 301px;
+}
+.top-img img {
+    width: 100%;
+    height: 100%;
+}
+.top-img-left {
+    position: absolute;
+    width: 191px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #418c59;
+    opacity: 0.5;
+}
+.top-img-right {
+    position: absolute;
+    width: 191px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: #cc7680;
+    opacity: 0.5;
+}
+.top-aside {
+    position: absolute;
+    width: 203px;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+.top-aside hr {
+    border: 1px solid #cc8091;
+}
+.top-aside h2 {
+    font-size: 24px;
+    color: #000;
+    text-decoration: underline;
+    line-height: 40px;
+    font-family: "SimHei";
+}
+/*首字母放大*/
+.top-aside h2::first-letter {
+    font-size: 120%;
+}
+/*下面因为只有一级子元素为这个字体，所以不能用.top-aside p*/
+.top-aside>p {
+    color: #676767;
+    line-height: 10px;
+    font-family: 'STKaiti';
+}
+.top-aside .top-aside-nums {
+    position: relative;
+    color: #cc8091;
+
+}
+.top-aside-nums p:first-child {
+    line-height: 144px;
+    font-size: 116px;
+    color: #75b86b;
+    /*font-style:oblique;*/
+}
+.top-aside-nums p:nth-child(2) {
+    /*position: absolute;*/
+    /*bottom: 0;
+    left: 0;*/
+    float: left;
+    font-size: 55px;
+    line-height: 55px;
+    margin-right: 5px;
+}
+.top-aside-nums p:nth-child(3) {
+    float: left;
+    line-height: 21px;
+    font-size: 21px;
+    margin-top: 18px;
+}
+.top-aside-nums p:nth-child(4) {
+    float: left;
+    line-height: 12px;
+    font-size: 12px;
+    margin-top: 0;
+}
+.section-mid {
+    width: 641px;
+    margin-top: 20px;
+    /*去掉块状元素之间的空隙，就把字体大小设置为0，因为这里默认有空格*/
+    font-size: 0;
+}
+.mid-left,.mid-mid,.mid-right {
+    display: inline-block;
+    /*width: 33.333%;*/
+    /*height: 202px;*/
+    padding: 0 25px 0 0;
+    box-sizing: border-box;
+    vertical-align: top;
+    /*outline: 1px solid red;*/
+}
+.mid-left {
+    width: 250px;
+}
+.mid-mid {
+    width: 220px;
+}
+.mid-right {
+    width: 171px;
+}
+/*这里指的是里面所有的p，不管子元素还是孙子元素*/
+.section-mid p {
+    color: #767777;
+    font-size: 12px;
+    font-family: SimSun;
+    text-align: justify;
+    opacity: 0.7;
+}
+/*这里指的是里面所有的h2*/
+.section-mid h2 {
+    font-size: 16px;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.mid-left h2 {
+    color: #418c59;
+}
+.mid-mid h2 {
+    color: #d2994f;
+}
+.mid-right h2 {
+    color: #cc7680;
+}
+.mid-right>p {
+    margin-bottom: 16px;
+    text-align: left;
+    line-height: 20px;
+}
+.mid-right-btm p {
+    color: #231815;
+    font-family: Microsoft YaHei;
+}
+.mid-right-btm span {
+    color: #cd4a48;
+    font-style: italic;
+}
+.section-btm {
+    margin-top: 60px;
+    /*height: 700px;*/
+    /*outline: 2px solid red;*/
+}
+.btm-left {
+    width: 415px;
+    display: inline-block;
+}
+.btm-left-title {
+    color: #11456b;
+    font-family: SimHei;
+    font-weight: bold;
+}
+.btm-left-title p:first-child {
+    margin-bottom: 16px;
+    font-size: 42px;
+}
+.btm-left-title p:first-child span {
+    font-size: 72px;
+    color: #f5e327;
+    font-style: italic;
+}
+.btm-left-title p:nth-child(2) {
+    margin-bottom: 16px;
+    font-size: 33px;
+}
+.underline {
+    border: 1px #11456b solid;
+	margin-bottom: 20px;
+}
+.btm-left-p {
+    font-size: 12px;
+    color: #767777;
+    font-family: SimSun;
+    line-height: 16px;
+    text-align: justify;
+}
+.btm-left-p p:nth-child(2), .btm-left-p p:nth-child(3){
+    text-indent: 2em;
+}
+.btm-left-p p:first-child span {
+    font-size: 70px;
+    color: #f5e327;
+    font-family: Microsoft YaHei;
+    line-height: 70px;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.btm-left-p img {
+    width: 226px;
+    height: 280px;
+    float: right;
+    margin: 15px 0 0 15px;
+}
+.btm-right {
+    float: right;
+    width: 458px;
+    /*height: 200px;*/
+    /*outline: 1px solid red;*/
+}
+.btm-right-top {
+    width: 100%;
+    height: 275px;
+    position: relative;
+}
+.btm-right-top img {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.btm-right-top .coat {
+    position: absolute;
+    width: 100%;
+    height: 61px;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.3;
+    z-index: 1;
+}
+.btm-right-top .discribe {
+    position: absolute;
+    left: 30px;
+    bottom: 8.5px;
+    height: 44px;
+    border-left: 3px solid #72b16a;
+    font-family: Microsoft YaHei;
+    padding-left: 5px;
+    z-index: 2;
+}
+.btm-right-top .discribe p:first-child {
+    display: inline-block;
+    color: #fff;
+    font-size: 26px;
+    line-height: 44px;
+}
+.btm-right-top p:nth-child(2) {
+    display: inline-block;
+    color: #72b16a;
+    font-size: 12px;
+    font-style: italic;
+    margin-left: 16.8px;
+}
+.btm-right-btm {
+    width: 100%;
+    height: 318px;
+    margin-top: 40px;
+    position: relative;
+    background-color: #eeedd6;
+    /*outline: 1px solid red;*/
+}
+.btm-right-btm>p {
+    font-size: 16px;
+    line-height: 40px;
+    color: #5a5b5b;
+    font-family: '宋体';
+    margin-left: 30px;
+    padding-top: 16px;
+    /*padding-bottom: 20px;*/
+}
+.btm-right-btm>p .triangle {
+    width: 0;
+    height: 0;
+    border-left:5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #10456b;
+    display: inline-block;
+}
+.btm-right-btm>p .back-note {
+    font-size: 12px;
+    color: #5a5b5d;
+    font-style: italic;
+}
+.btm-right-btm .btm-left {
+    position: absolute;
+    width: 260px;
+    height: 160px;
+    /*line-height: 160px;*/
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    background-color: #d45d5c;
+    /*font-size: 0;*/
+}
+.btm-right-btm .btm-left>p {
+    display: inline-block;
+    height: 100%;
+    line-height: 160px;
+    font-size: 110px;
+    font-family: Microsoft YaHei;
+    margin-left: 10px;
+}
+.btm-left .btm-left-right {
+    display: inline-block;
+    height: 86px;
+    border-left: 2px #fff solid;
+    margin: 37px auto 37px 0;
+    vertical-align: top;
+    padding-left: 8px;
+    /*line-height: 6px;*/
+}
+.btm-left .btm-left-right .up {
+    font-size: 21px;
+    font-style: italic;
+    font-family: '黑体';
+    line-height: 24px;
+}
+.btm-left .btm-left-right .down {
+    margin-top: 6px;
+    font-family: '黑体';
+}
+.btm-right-btm .btm-right {
+    position: absolute;
+    width: 199px;
+	height: 160px;
+    right: 0;
+    bottom: 0;
+    text-align: justify;
+    padding: 20px 15px 0 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #5a5b5d;
+    font-family: '黑体';
+    font-style: italic;
+    /*line-height: 16px;*/
+}
+.btm-right-btm .btm-right span {
+    font-size: 72px;
+    color: #d45d5c;
+    font-style: normal;
+    height: 30px;
+    /*height: 72px;*/
+}
+.btm-right-btm .btm-right .span-1 {
+    float: left;
+    margin: -18px 10px 0 -40px;
+}
+.btm-right-btm .btm-right .span-2 {
+    float: right;
+    margin: -5px -40px 0 0;
+}
+footer {
+    margin-top:50px;
+    border-top: 1px solid #938e8c;
+    padding-top: 3px;
+}
+footer .footer {
+    float: right;
+    color: #d45d5c;
+    font-family: '黑体';
+}
