@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+        margin:0px;                     /* 外边距   */
+        border:0px;                     /* 边框     */
+        padding:0px;                    /* 内边距   */
+        font-family: Microsoft YaHei;   /* 字体     */
+        font-size: 22px;                /* 字体大小 */
+        min-width: 850px;               /* 最小宽度，这个有必要 */
+    }
+.universe {
+    width: 100%;
+    height: 600px;
+    /*background-color: #000033;*/
+    background-image: linear-gradient(45deg, #000033, #660000);
+    position: relative;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.planet {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #0088A8;
+    background-image: linear-gradient(#FFCC00, #CD6600);
+    position: relative;
+    overflow: hidden;
+}
+.planet [class^='hole'] {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #CC6633;
+}
+.hole1 {
+    width: 20px;
+    height: 20px;
+    top: 60%;
+    left: 20%;
+}
+.hole2 {
+    width: 15px;
+    height: 15px;
+    top: 20%;
+    left: 30%;
+}
+.hole3 {
+    width: 20px;
+    height: 20px;
+    top: 60%;
+    left: 90%;
+}
+.hole4 {
+    width: 20px;
+    height: 20px;
+    top: 8%;
+    left: 80%;
+}
+.hole5 {
+    width: 15px;
+    height: 20px;
+    top: 95%;
+    left: 45%;
+}
+div[class^='path'] {
+    /*width: 250px;
+    height: 250px;*/
+    border-radius: 50%;
+    border: 0.6px solid #666666;
+    /*z-index: 5;*/
+}
+.path-1 {
+    width: 250px;
+    height: 250px;
+}
+.path-2 {
+    width: 320px;
+    height: 320px;
+}
+.path-3 {
+    width: 390px;
+    height: 390px;
+}
+.path-4 {
+    width: 460px;
+    height: 460px;
+}
+div[class^='ship'] {
+    position: absolute;
+    /*这里不要用translate，因为之后要旋转，是相对之前的几何中心而言的*/
+    /*transform: translate(-50%,50%);*/
+    width: 40px;
+    height: 20px;
+    background-color: grey;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 20px;
+    font-size: 5px;
+    color: #fff;
+    /*transform-origin: */
+}
+.path-1 [class^='ship'] {
+    left: 105px;
+    bottom: -10px;
+    /*如果上面ship有的transform，这里就没法调整成为正确的中心了
+    这里的115是由ship高度减去轨道半径即 10 - 125 所得*/
+    transform-origin: 20px -115px;
+}
+.path-2 [class^='ship'] {
+    left: 140px;
+    bottom: -10px;
+    transform-origin: 20px -150px;
+}
+.path-3 [class^='ship'] {
+    left: 175px;
+    bottom: -10px;
+    transform-origin: 20px -185px;
+}
+.path-4 [class^='ship'] {
+    left: 210px;
+    bottom: -10px;
+    transform-origin: 20px -220px;
+}
+div[class^='ship'] .power {
+    /*position: absolute;*/
+    width: 100%;
+    height: 100%;
+    /*top: 0;
+    left: 0;*/
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+}
+div[class^='ship'] span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+/*div[class^='ship'] .power*/
+.command {
+    width: 950px;
+    height: 200px;
+    margin: 40px auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 15px;
+    position: relative;
+}
+.list {
+    width: 29%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    border-left: 1px solid #ccc;
+    box-shadow: -2px 0px 2px lightgrey;
+    padding: 10px;
+    font-size: 14px;
+    overflow: auto;
+}
+div[class^='control'] {
+    width: 80%;
+    min-width: 70%;
+    margin-top: 10px;
+    /*outline: 1px solid red;*/
+}
+button {
+    height: 100%;
+    font-family: Microsoft YaHei;
+    font-size: 18px;
+    width: 100px;
+    border: 0.2px solid black;
+    background-color: #fff;
+    border-radius: 5px;
+}
+/*.create button{
+    margin-bottom: 10px;
+    width: 150px;
+}*/
+.hover {
+    background-color: lightgrey;
+    cursor: pointer;
+    outline: none;
+}
+button:focus {
+    outline: none;
+}
+stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+star {
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+}
