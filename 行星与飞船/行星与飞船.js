@@ -159,9 +159,6 @@ Airship.prototype.stateManager = function() {
     var changeState = function(state) {
         if (state !== self.state) {
             states[`${state}State`]()
-            //改变状态的时候停止之前的传送，开始新的传送
-            // clearInterval(self.stateTimer)
-            // self.messageManager().sendState()
         }
     }
     return {changeState : changeState}
@@ -191,26 +188,6 @@ Airship.prototype.messageManager = function(code) {
         },500)
     }
     var shipDecompile = function() {
-        // var shipId = Number(code[0]),
-        //     commandCode = code.slice(1),
-        //     command
-        // switch (commandCode) {
-        //     case '0001':
-        //         command = 'fly'
-        //         break;
-        //     case '0010':
-        //         command = 'stop'
-        //         break;
-        //     case '1100':
-        //         command = 'destroy'
-        //         break;
-        //     default:
-        //         consoler(`无效命令`, 'red')
-        // }
-        // return {
-        //     shipId : shipId,
-        //     command : command
-        // }
         var busMsg = adapterFunc().decompile(code)
         return busMsg
     }
@@ -322,12 +299,6 @@ Commander.prototype.commandManager = function() {
             let dynaId = $('#menu-select-dyna').val(),
                 powerId = $('#menu-select-pow').val(),
                 msgObj = new messageObj(self.pathId, self.msg, dynaId, powerId, 100)
-                // msgObj = {
-                //     message : self.msg,
-                //     pathId : self.pathId,
-                //     dynaId : dynaId,
-                //     powerId : powerId
-                // }
             self.obj.busManager().sendMessage(msgObj)
             $('.cover')[0].style.display = 'none'
             $(('button[name="create"]'),`[data-con=${self.pathId}]`).attr('disabled', 'true').removeClass('hover')
@@ -356,10 +327,6 @@ Commander.prototype.commandManager = function() {
                     //如果点击销毁，则创建按钮可点击，这里不能用attr将disabled属性改为false,应删除此属性
                     t.siblings('button[name="create"]').removeAttr('disabled').removeClass('hover')
                 }
-                // var msgObj = {
-                //     message : self.msg,
-                //     pathId : self.pathId
-                // }
                 var msgObj = new messageObj(self.pathId, self.msg)
                 self.obj.busManager().sendMessage(msgObj)
             }
@@ -438,21 +405,6 @@ Bus.prototype.busManager = function() {
         prob = Number(self.missProb),
         sendSpeed = Number(self.sendSpeed)
     var BusCompile = function(msg) {
-        // var shipCode = msg.pathId,
-        //     commandCode
-        // switch (msg.message) {
-        //     case 'fly':
-        //         commandCode = '0001'
-        //         break;
-        //     case 'stop':
-        //         commandCode = '0010'
-        //         break;
-        //     case 'destroy':
-        //         commandCode = '1100'
-        //         break;
-        // }
-        // var code = shipCode + commandCode
-        // return code
         var code = adapterFunc().compile(msg)
         return code
     }
@@ -469,9 +421,6 @@ Bus.prototype.busManager = function() {
             } else {
                 self.shipData[newId] = newOne
             }
-        // newOne.create()
-        //这里用数据库里面的对象建立飞船，如果直接用newOne建立，则这个飞船对象不是数据库里的对象，而是
-        //外面的，数据库里的只是复制品
         self.shipData[newId].create()
     }
     var sendMessage = function(msg) {
@@ -494,8 +443,6 @@ Bus.prototype.busManager = function() {
                         self.shipData[keys[i]].messageManager(code).getMessage()
                     }
                     if (ms === 'destroy') {
-                        //这里删除了此对象,其发送信息的动作也停止了，如果是用数据库外面的单独对象建立飞船
-                        //动作会一直持续，因为删除了数据库内的，并无法影响外面的对象
                         delete self.shipData[pid]
                     }
                 }
